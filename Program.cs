@@ -187,7 +187,7 @@ namespace lab3
             //Car RandomCar = new Car();
             //Console.WriteLine($"\n{RandomCar.Id}");
             Console.WriteLine(Car.Info);
-            Console.WriteLine($"Равны ли {carList[0].ToString()} и {carList[1].ToString()}?: {Car.Equals(carList[0], carList[1])}");
+            Console.WriteLine($"Равны ли {carList[0]} и {carList[1]}?: {Equals(carList[0], carList[1])}");
 
 
             var AnonCar = new { model = "Why", brand = "Do", price = 1, registration = "Exist", production_year = 1999, color = "blue" };
