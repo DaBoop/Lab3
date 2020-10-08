@@ -16,7 +16,7 @@ namespace lab3
          *   эксплуатируются больше n лет;
          */
 
-        class Car
+        partial class Car
         {         
     
             private  long id;
@@ -46,10 +46,27 @@ namespace lab3
 
             public Car() 
             {
-                Random rand = new Random();
-                int newId = rand.Next(1,10);
-                id = newId;
+                int newId = new Random().Next(1,10);
+                Id = newId;
                 carNumber++;
+                hash = GetHashCode();
+            }
+
+             ~Car()
+            {
+                carNumber--;
+            }
+
+            public override int GetHashCode()
+            {
+                HashCode hash = new HashCode();
+                hash.Add(base.GetHashCode());
+                hash.Add(Id);
+                hash.Add(Brand);
+                hash.Add(Model);
+                hash.Add(Production_year);
+                hash.Add(Price);
+                return hash.ToHashCode();
             }
 
             public string Registration
