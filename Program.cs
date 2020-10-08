@@ -4,7 +4,8 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Schema;
 
-{
+namespace lab3
+{ 
     class Program
     {
         /*
@@ -47,27 +48,54 @@ using System.Xml.Schema;
             {
                 Random rand = new Random();
                 int newId = rand.Next(1,10);
-                SetId(newId);
+                id = newId;
                 carNumber++;
             }
 
-            public long GetId() => id;
-            public string GetBrand() => brand;
-            public string GetModel() => model;
+            public string Registration
+            {
+                get => registration;
+            }
+
+            static public int CarNumber
+            {
+                get => carNumber;
+            }
+
+            public long Id
+            {
+                get => id;
+                set => id = value;
+            }
+
+            public string Brand
+            {
+                get => brand;
+                set => brand = value;
+            }
+
+            public string Model
+            {
+                get => model;
+                set => model = value;
+            }
+            public int Production_year
+            {
+                get => production_year;
+                set => production_year = value;
+            }
+            public string Color
+            {
+                get => color;
+                set => color = value;
+            }
+            public int Price
+            {
+                get => price;
+                set => price = value;
+            }
+
             public int GetAge() => 2020 - production_year;
-            public int GetProductionYear() => production_year;
-            public string GetColor() => color;
-            public int GetPrice() => price;
-            static public int GetCarNumber() => carNumber;
-
-            private void SetId(long newId) => id = newId;
-            public void SetBrand(string newBrand) => brand = newBrand;
-            public void SetModel(string newModel) => model = newModel;
-            public void SetProductionYear(int newProduction_year) => production_year = newProduction_year;
-            public void SetColor(string newColor) => color = newColor;
-            public void SetPrice(int newPrice) => price = newPrice;
-
-
 
             // private Car() { }
 
@@ -80,7 +108,7 @@ using System.Xml.Schema;
             foreach (Car car in carList)
             {
 
-                if ((car.GetModel() == carModel) && car.GetAge() > age)
+                if ((car.Model == carModel) && car.GetAge() > age)
                 {
                     resCarList.Add(car);
                 }
@@ -93,7 +121,7 @@ using System.Xml.Schema;
             List<Car> resCarList = new List<Car>();
             foreach (Car car in carList)
             {
-                if (car.GetBrand() == carBrand)
+                if (car.Brand == carBrand)
                 {
                     resCarList.Add(car); 
                 }
@@ -118,7 +146,7 @@ using System.Xml.Schema;
             List<Car> resCarList = CarsOlderThan(carList, "A1", 16);
             foreach(var car in resCarList)
             {
-                Console.WriteLine($"\t{car.GetModel()} ({car.GetAge()})");
+                Console.WriteLine($"\t{car.Model} ({car.GetAge()})");
             }
 
             Console.WriteLine();
@@ -126,12 +154,12 @@ using System.Xml.Schema;
             resCarList = CarsOfBrand(carList, "Volvo");
             foreach (var car in resCarList) 
             {
-                Console.WriteLine($"\t{car.GetBrand()}: {car.GetModel()} ({car.GetAge()})");
+                Console.WriteLine($"\t{car.Brand}: {car.Model} ({car.GetAge()})");
             }
 
             Car RandomCar = new Car();
-            Console.WriteLine($"\n{RandomCar.GetId()}");
-            Console.WriteLine($"\nCar number: {Car.GetCarNumber()}");
+            Console.WriteLine($"\n{RandomCar.Id}");
+            Console.WriteLine($"\nCar number: {Car.CarNumber}");
 
             Console.Write("\n");
             Console.Write("Press any key to continue . . . ");
