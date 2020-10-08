@@ -171,7 +171,7 @@ namespace lab3
             };
 
             List<Car> resCarList = CarsOlderThan(carList, "A1", 16);
-            foreach(var car in resCarList)
+            foreach (var car in resCarList)
             {
                 Console.WriteLine($"\t{car.Model} ({car.GetAge()})");
             }
@@ -179,7 +179,7 @@ namespace lab3
             Console.WriteLine();
 
             resCarList = CarsOfBrand(carList, "Volvo");
-            foreach (var car in resCarList) 
+            foreach (var car in resCarList)
             {
                 Console.WriteLine($"\t{car.Brand}: {car.Model} ({car.GetAge()})");
             }
@@ -187,6 +187,9 @@ namespace lab3
             //Car RandomCar = new Car();
             //Console.WriteLine($"\n{RandomCar.Id}");
             Console.WriteLine(Car.Info);
+            Console.WriteLine($"Равны ли Volvo A1 и Lada F3?: {Car.Equals(carList[0], carList[1])}");
+
+            var AnonCar = new { model = "Why", brand = "Do", price = 1, registration = "Exist", production_year = 1999, color = "blue" };
 
             Console.Write("\n");
             Console.Write("Press any key to continue . . . ");
