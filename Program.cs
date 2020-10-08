@@ -26,10 +26,12 @@ namespace lab3
             private  string color;
             private  int price;
             private readonly int hash;
-
+            
+            private string registration;
             private static int carNumber = 0;
 
-        private readonly string registration;
+
+
             public Car(int id, string brand, string model, int production_year, int price, string registration, string color = "")
             {
                 this.id = id;
@@ -69,9 +71,24 @@ namespace lab3
                 return hash.ToHashCode();
             }
 
+            public override bool Equals(object o)
+            {
+
+                if ((o == null) || !GetType().Equals(o.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    Car s = (Car)o;
+                    return  (s.Id == Id) && (s.Color == Color) && (s.Registration == Registration) && (s.Price == Price) && (s.Model == Model) && (s.Brand == Brand) && (s.Production_year == Production_year);
+                }
+            }
+
             public string Registration
             {
                 get => registration;
+                set => registration = value;
             }
 
             static public int CarNumber
