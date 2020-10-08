@@ -8,13 +8,6 @@ namespace lab3
 { 
     class Program
     {
-        /*
-         *   Добавить метод вывода возраста машины.
-         *   Создать массив объектов. Вывести:
-         *   a) список автомобилей заданной марки;
-         *   b) список автомобилей заданной модели, которые
-         *   эксплуатируются больше n лет;
-         */
 
         partial class Car
         {         
@@ -131,8 +124,8 @@ namespace lab3
 
             public int GetAge() => 2020 - production_year;
 
-            // private Car() { }
-
+            //private Car() { }
+            static public string Info => $"Класс {typeof(Car)}, включающий {carNumber} объектов";
             static Car() { }
         }
 
@@ -191,9 +184,9 @@ namespace lab3
                 Console.WriteLine($"\t{car.Brand}: {car.Model} ({car.GetAge()})");
             }
 
-            Car RandomCar = new Car();
-            Console.WriteLine($"\n{RandomCar.Id}");
-            Console.WriteLine($"\nCar number: {Car.CarNumber}");
+            //Car RandomCar = new Car();
+            //Console.WriteLine($"\n{RandomCar.Id}");
+            Console.WriteLine(Car.Info);
 
             Console.Write("\n");
             Console.Write("Press any key to continue . . . ");
